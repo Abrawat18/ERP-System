@@ -19,7 +19,6 @@ public class HiringController {
             return null;
         }
         else{
-            hiringInfo.
         }
     }
 

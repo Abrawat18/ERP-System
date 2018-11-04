@@ -7,17 +7,18 @@ import java.sql.Date;
 @Entity
 @Table(name = "HiringInfo")
 public class HiringInfo implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int hiringId;
-    private int applicationid;
+    private int applicationId;
     private char employmentType;
     private Date joiningDate;
     private Date leavingDate;
     private Date trainingDate;
-    private char docSubmitted;
+    private char documentsSubmitted;
 
     public int getHiringId() {
         return hiringId;
@@ -27,12 +28,12 @@ public class HiringInfo implements Serializable {
         this.hiringId = hiringId;
     }
 
-    public int getApplicationid() {
-        return applicationid;
+    public int getApplicationId() {
+        return applicationId;
     }
 
-    public void setApplicationid(int applicationid) {
-        this.applicationid = applicationid;
+    public void setApplicationId(int applicationId) {
+        this.applicationId = applicationId;
     }
 
     public char getEmploymentType() {
@@ -67,11 +68,11 @@ public class HiringInfo implements Serializable {
         this.trainingDate = trainingDate;
     }
 
-    public char getDocSubmitted() {
-        return docSubmitted;
+    public char getDocumentsSubmitted() {
+        return documentsSubmitted;
     }
 
-    public void setDocSubmitted(char docSubmitted) {
-        this.docSubmitted = docSubmitted;
+    public void setDocumentsSubmitted(char documentsSubmitted) {
+        this.documentsSubmitted = documentsSubmitted;
     }
 }

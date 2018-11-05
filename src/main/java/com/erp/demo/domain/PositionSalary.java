@@ -2,7 +2,6 @@ package com.erp.demo.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
 
 @Entity
 @Table(name = "PositionSalary")
@@ -17,7 +16,7 @@ public class PositionSalary implements Serializable {
     private String department;
     private int baseSalary;
     private int monthlyLeaves;
-    private int montlyHours;
+    private int monthlyHours;
     private char employmentType;
 
     public int getPositionId() {
@@ -60,12 +59,12 @@ public class PositionSalary implements Serializable {
         this.monthlyLeaves = monthlyLeaves;
     }
 
-    public int getMontlyHours() {
-        return montlyHours;
+    public int getMonthlyHours() {
+        return monthlyHours;
     }
 
-    public void setMontlyHours(int montlyHours) {
-        this.montlyHours = montlyHours;
+    public void setMonthlyHours(int monthlyHours) {
+        this.monthlyHours = monthlyHours;
     }
 
     public char getEmploymentType() {

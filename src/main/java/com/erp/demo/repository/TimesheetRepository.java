@@ -10,5 +10,4 @@ import java.util.List;
 public interface TimesheetRepository extends CrudRepository<Timesheet, Integer> {
 
     List<Timesheet> getAllByEmployeeIdAndMonthAndFinancialYear(int employeeId, String month, int financialYear);
-
 }

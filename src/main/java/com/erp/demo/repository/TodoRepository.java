@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TodoRepository extends CrudRepository<ToDoEvent, Long>{
+public interface TodoRepository extends CrudRepository<ToDoEvent, Integer>{
     List<ToDoEvent> getAllByHasDoneFalse();
     ToDoEvent getById(Long id);
 }

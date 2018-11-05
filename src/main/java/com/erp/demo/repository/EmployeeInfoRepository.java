@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface EmployeeInfoRepository extends CrudRepository<EmployeeInfo, Long> {
+public interface EmployeeInfoRepository extends CrudRepository<EmployeeInfo, Integer> {
 
     List<EmployeeInfo> getAllByEmployeeIdAndDepartmentAndJobTitle(int employeeId, String department, String jobTitle);
     List<Integer> getEmployeeIdByActiveFlag(char activeFlag);

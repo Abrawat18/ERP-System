@@ -12,7 +12,7 @@ import java.util.List;
 public class HiringService {
 
     @Autowired
-    private HiringInfoRepository hiringInfoRepository;
+    HiringInfoRepository hiringInfoRepository;
 
     public List<HiringInfo> getJoineeDetails(Date trainingDate, char documentsSubmitted, Date joiningDate){
         return hiringInfoRepository.getAllByTrainingDateAndDocumentsSubmittedAndJoiningDate(trainingDate, documentsSubmitted, joiningDate);
@@ -24,6 +24,23 @@ public class HiringService {
             return false;
         } else {
             hiringInfo.setTrainingDate(trainingDate);
+            hiringInfo.setDocumentsSubmitted(documentsSubmitted);
+            hiringInfoRepository.save(hiringInfo);
+            return true;
+        }
+    }
+
+    public boolean addNewJoinee(int applicantId, char employmentType, Date joiningDate, char documentsSubmitted){
+
+        if(hiringInfoRepository.existsById(applicantId))
+            return false;
+
+        else {
+            HiringInfo hiringInfo = new HiringInfo();
+
+            hiringInfo.setApplicationId(applicantId);
+            hiringInfo.setEmploymentType(employmentType);
+            hiringInfo.setJoiningDate(joiningDate);
             hiringInfo.setDocumentsSubmitted(documentsSubmitted);
             hiringInfoRepository.save(hiringInfo);
             return true;

@@ -12,4 +12,6 @@ public interface EmployeeInfoRepository extends CrudRepository<EmployeeInfo, Int
     List<EmployeeInfo> getAllByEmployeeIdAndDepartmentAndJobTitle(int employeeId, String department, String jobTitle);
     List<Integer> getEmployeeIdByActiveFlag(char activeFlag);
     String getEmailIdByEmployeeId(int employeeId);
+    List<EmployeeInfo> getAllByEmployeeId(int employeeId);
+    List<EmployeeInfo> getAllByDepartmentAndJobTitle(String department, String jobTitle);
 }

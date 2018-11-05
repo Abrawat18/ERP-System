@@ -31,6 +31,7 @@ public class HiringController {
             return "Employee not found";
 
         boolean ifUpdate = hiringService.updateHireeDetails(hiringId, trainingDate, documentsSubmitted);
+
         if(ifUpdate)
             return "Details updated successfully";
         else

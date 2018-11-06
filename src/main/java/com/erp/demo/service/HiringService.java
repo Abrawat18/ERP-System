@@ -19,31 +19,38 @@ public class HiringService {
     }
 
     public boolean updateHireeDetails(int hiringId, Date trainingDate, char documentsSubmitted){
-        HiringInfo hiringInfo = hiringInfoRepository.getByHiringId(hiringId);
-        if(hiringInfo == null){
-            return false;
-        } else {
-            hiringInfo.setTrainingDate(trainingDate);
-            hiringInfo.setDocumentsSubmitted(documentsSubmitted);
-            hiringInfoRepository.save(hiringInfo);
-            return true;
+
+        try {
+            HiringInfo hiringInfo = hiringInfoRepository.getByHiringId(hiringId);
+            if (hiringInfo == null) {
+                return false;
+            } else {
+                hiringInfo.setTrainingDate(trainingDate);
+                hiringInfo.setDocumentsSubmitted(documentsSubmitted);
+                hiringInfoRepository.save(hiringInfo);
+                return true;
+            }
         }
+        catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
     }
 
-    public boolean addNewJoinee(int applicantId, char employmentType, Date joiningDate, char documentsSubmitted){
+    public boolean addNewJoinee(int employeeId, char employmentType){
 
-        if(hiringInfoRepository.existsById(applicantId))
-            return false;
-
-        else {
+        try {
             HiringInfo hiringInfo = new HiringInfo();
-
-            hiringInfo.setApplicationId(applicantId);
+            hiringInfo.setEmployeeId(employeeId);
             hiringInfo.setEmploymentType(employmentType);
-            hiringInfo.setJoiningDate(joiningDate);
-            hiringInfo.setDocumentsSubmitted(documentsSubmitted);
             hiringInfoRepository.save(hiringInfo);
             return true;
         }
+        catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
     }
 }

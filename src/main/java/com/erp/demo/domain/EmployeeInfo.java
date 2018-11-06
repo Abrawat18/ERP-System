@@ -12,7 +12,6 @@ public class EmployeeInfo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int applicantId;
     private int employeeId;
     private String name;
     private String emailId;
@@ -23,14 +22,6 @@ public class EmployeeInfo implements Serializable {
     private String jobTitle;
     private int managerId;
     private char activeFlag;
-
-    public int getApplicantId() {
-        return applicantId;
-    }
-
-    public void setApplicantId(int applicantId) {
-        this.applicantId = applicantId;
-    }
 
     public int getEmployeeId() {
         return employeeId;

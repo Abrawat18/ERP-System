@@ -50,15 +50,13 @@ public class EmployeeController {
         String jsonToString = gson.toJson(insertNewJoinee);
 
         Map<String, Object> map = gson.fromJson(jsonToString, new TypeToken<Map<String, Object>>(){}.getType());
-
-        boolean updateEmployee = employeeService.addNewJoinee((int) map.get("id"), (char) map.get("gender"),
+        int empID = employeeService.addNewJoinee((char) map.get("gender"),
                 (String) map.get("dept"), (String) map.get("jobTitle"),
                 (int) map.get("manager"), (char) map.get("active"));
 
-        boolean updateHiring = hiringService.addNewJoinee((int) map.get("id"), (char) map.get("emplType"),
-                (Date) map.get("joining"), (char) map.get("docs"));
+        boolean updateHiring = hiringService.addNewJoinee(empID, (char) map.get("emplType"));
 
-        if(updateEmployee && updateHiring)
+        if(updateHiring)
             return "Successfully added new hires";
         else
             return "Falied to add new hires";

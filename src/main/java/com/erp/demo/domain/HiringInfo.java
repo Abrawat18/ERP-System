@@ -13,7 +13,7 @@ public class HiringInfo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int hiringId;
-    private int applicationId;
+    private int employeeId;
     private char employmentType;
     private Date joiningDate;
     private Date leavingDate;
@@ -28,12 +28,12 @@ public class HiringInfo implements Serializable {
         this.hiringId = hiringId;
     }
 
-    public int getApplicationId() {
-        return applicationId;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
-    public void setApplicationId(int applicationId) {
-        this.applicationId = applicationId;
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
     public char getEmploymentType() {

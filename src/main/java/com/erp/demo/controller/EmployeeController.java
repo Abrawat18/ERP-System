@@ -1,6 +1,7 @@
 package com.erp.demo.controller;
 
 import com.erp.demo.domain.EmployeeInfo;
+import com.erp.demo.domain.PositionSalary;
 import com.erp.demo.service.EmployeeService;
 import com.erp.demo.service.HiringService;
 import com.google.gson.Gson;
@@ -61,4 +62,14 @@ public class EmployeeController {
         else
             return "Falied to add new hires";
     }
+
+    @PutMapping("/increment/{employeeId}")
+    public String updateSalaryIncrement(@PathVariable int employeeId){
+        if(employeeId < 0){
+            return "Incorrect employee Id";
+        }
+        return "";
+
+    }
+
 }

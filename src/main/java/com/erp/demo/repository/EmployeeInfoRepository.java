@@ -1,6 +1,8 @@
 package com.erp.demo.repository;
 
 import com.erp.demo.domain.EmployeeInfo;
+import com.erp.demo.domain.PositionSalary;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,4 +16,5 @@ public interface EmployeeInfoRepository extends CrudRepository<EmployeeInfo, Int
     String getEmailIdByEmployeeId(int employeeId);
     List<EmployeeInfo> getAllByEmployeeId(int employeeId);
     List<EmployeeInfo> getAllByDepartmentAndJobTitle(String department, String jobTitle);
+
 }

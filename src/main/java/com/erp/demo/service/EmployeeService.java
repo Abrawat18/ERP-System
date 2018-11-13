@@ -1,6 +1,7 @@
 package com.erp.demo.service;
 
 import com.erp.demo.domain.EmployeeInfo;
+import com.erp.demo.domain.PositionSalary;
 import com.erp.demo.repository.EmployeeInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,4 +38,5 @@ public class EmployeeService {
             employeeInfo.setActiveFlag(activeFlag);
             return employeeInfoRepository.save(employeeInfo).getEmployeeId();
     }
+
 }

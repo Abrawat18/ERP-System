@@ -3,14 +3,15 @@ package com.erp.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.util.List;
 
+@Service
 public class EmailService {
 
-    @Autowired
     private JavaMailSender javaMailSender;
 
     public void sendEmail(List<String> emailIds){

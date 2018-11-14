@@ -5,6 +5,22 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
+@SqlResultSetMapping(
+        name="incrementFactors",
+        columns = {
+                @ColumnResult(name = "totalHoursPunched"),
+                @ColumnResult(name = "monthlyHours"),
+                @ColumnResult(name = "joiningDate"),
+                @ColumnResult(name = "monthlyLeaves"),
+                @ColumnResult(name = "totalLeavesTaken"),
+                @ColumnResult(name = "ratingByManager")
+        }
+)
+
+@NamedNativeQuery(name="EmployeeInfo.getTotalHoursPunched", query = "select t.totalHoursPunched as totalHoursPunched, ps.monthlyHours as monthlyHours, h.joiningDate as joiningDate, ps.monthlyLeaves as monthlyLeaves, t.totalLeavesTaken as totalLeavesTaken, t.ratingByManager as ratingByManager " +
+        "from Timesheet t, PositionSalary ps, HiringInfo h, EmployeeInfo e " +
+        "where e.employeeId = 1 and ps.department = e.department and ps.position = e.jobTitle " +
+        "and t.employeeId = e.employeeId and h.employeeId = e.employeeId", resultSetMapping = "incrementFactors")
 @Entity
 @Table(name = "EmployeeInfo")
 public class EmployeeInfo implements Serializable {

@@ -1,7 +1,6 @@
 package com.erp.demo.controller;
 
 import com.erp.demo.domain.EmployeeInfo;
-import com.erp.demo.domain.PositionSalary;
 import com.erp.demo.service.EmployeeService;
 import com.erp.demo.service.HiringService;
 import com.google.gson.Gson;
@@ -9,8 +8,6 @@ import com.google.gson.reflect.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -64,12 +61,13 @@ public class EmployeeController {
     }
 
     @PutMapping("/increment/{employeeId}")
-    public String updateSalaryIncrement(@PathVariable int employeeId){
+    public Object updateSalaryIncrement(@PathVariable int employeeId){
         if(employeeId < 0){
             return "Incorrect employee Id";
         }
-        return "";
-
+        employeeService.updateSalaryIncrement(employeeId);
+        return "success";
     }
+
 
 }

@@ -1,7 +1,7 @@
 package com.erp.demo.service;
 
 import com.erp.demo.domain.EmployeeInfo;
-import com.erp.demo.domain.PositionSalary;
+import com.erp.demo.domain.IncrementFactors;
 import com.erp.demo.repository.EmployeeInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,4 +39,18 @@ public class EmployeeService {
             return employeeInfoRepository.save(employeeInfo).getEmployeeId();
     }
 
+    public Object updateSalaryIncrement(int employeeId) {
+        IncrementFactors incrementFactors = employeeInfoRepository.getTotalHoursPunched();
+        if(incrementFactors!=null){
+            /*Gson gson = new Gson();
+            String jsonToString = gson.toJson(incrementFactors);
+            Map<String, Object> map = gson.fromJson(jsonToString, new TypeToken<Map<String, Object>>(){}.getType());
+            System.out.println("the object is:"+incrementFactors);
+            float finalIncrementFactor = map.get("RatingByManager")*/
+            System.out.println("this is my result: "+incrementFactors.getTotalHoursPunched());
+            return incrementFactors;
+        }
+
+        return "failure";
+    }
 }

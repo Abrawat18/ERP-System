@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface TeamFundManagementRepository extends CrudRepository<Projects, Integer> {
 
-    int getByProjectIdAndManagerIdAndTeamBuildingActivityFlag(int projectId, String managerId, char teamBuildingActivityFlag);
+    List<Projects> getByProjectIdAndManagerIdAndTeamBuildingActivity(int projectId, String managerId, char teamBuildingActivityFlag);
 }

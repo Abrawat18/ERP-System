@@ -64,8 +64,8 @@ public class PositionSalary implements Serializable {
         return monthlyHours;
     }
 
-    public void setMonthlyHours(int montlyHours) {
-        this.monthlyHours = montlyHours;
+    public void setMonthlyHours(int monthlyHours) {
+        this.monthlyHours = monthlyHours;
     }
 
     public char getEmploymentType() {

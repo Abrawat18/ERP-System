@@ -13,7 +13,7 @@ public class SalPromCalcService {
     @Autowired
     SalPromCalcRepository salPromCalcRepository;
 
-    public int getBaseSalaryByPositionAndEmploymentType(String position, char employmentType){
-        return salPromCalcRepository.getBaseSalaryByPositionAndEmploymentType(position, employmentType);
+    public int getBaseSalaryByPositionAndDepartment(String position, char department){
+        return salPromCalcRepository.getBaseSalaryByPositionAndDepartment(position, department);
     }
 }

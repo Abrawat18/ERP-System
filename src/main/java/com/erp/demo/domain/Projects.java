@@ -15,8 +15,8 @@ public class Projects implements Serializable {
     private int projectId;
     private String teamId;
     private String managerId;
-    private int alloatedPartyFunds;
-    private boolean teamBuildingActivityFlag;
+    private int allocatedPartyFund;
+    private char teamBuildingActivity;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -46,19 +46,19 @@ public class Projects implements Serializable {
         this.managerId = managerId;
     }
 
-    public int getAlloatedPartyFunds() {
-        return alloatedPartyFunds;
+    public int getAllocatedPartyFund() {
+        return allocatedPartyFund;
     }
 
-    public void setAlloatedPartyFunds(int alloatedPartyFunds) {
-        this.alloatedPartyFunds = alloatedPartyFunds;
+    public void setAllocatedPartyFund(int allocatedPartyFund) {
+        this.allocatedPartyFund = allocatedPartyFund;
     }
 
-    public boolean isTeamBuildingActivityFlag() {
-        return teamBuildingActivityFlag;
+    public char getTeamBuildingActivity() {
+        return teamBuildingActivity;
     }
 
-    public void setTeamBuildingActivityFlag(boolean teamBuildingActivityFlag) {
-        this.teamBuildingActivityFlag = teamBuildingActivityFlag;
+    public void setTeamBuildingActivityFlag(char teamBuildingActivity) {
+        this.teamBuildingActivity = teamBuildingActivity;
     }
 }

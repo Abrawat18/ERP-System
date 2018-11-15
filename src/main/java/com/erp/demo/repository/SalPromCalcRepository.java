@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface SalPromCalcRepository extends CrudRepository<PositionSalary, Integer> {
 
-    int getBaseSalaryByPositionAndEmploymentType(String position, char employmentType);
+    int getBaseSalaryByPositionAndDepartment(String position, char department);
     //List<Integer> getEmployeeIdByActiveFlag(char activeFlag);
 }

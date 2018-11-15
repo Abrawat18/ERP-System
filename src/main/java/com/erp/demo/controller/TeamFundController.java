@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/TeamFund")
+@RequestMapping("/teamFund")
 public class TeamFundController {
 
     @Autowired
     TeamFundManagementService teamFundManagementService;
 
-    @GetMapping("/{projectId}")
-    public int getAvailablePartyFund(@PathVariable int projectId,
+    @GetMapping("/partyFund")
+    public List<Projects> getAvailablePartyFund(@RequestParam(value = "projectId") int projectId,
                                           @RequestParam(value = "managerId") String managerId,
                                           @RequestParam(value = "teamBuildingActFlag") char teamBuildingActivityFlag){
-        return teamFundManagementService.getByProjectIdAndManagerIdAndTeamBuildingActivityFlag(projectId,
+        return teamFundManagementService.getByProjectIdAndManagerIdAndTeamBuildingActivity(projectId,
                 managerId, teamBuildingActivityFlag);
 
     }

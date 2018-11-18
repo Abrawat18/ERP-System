@@ -16,7 +16,7 @@ public class Payroll implements Serializable{
     private int basePay;
     private int incentives;
     private int totalPay;
-    private int paymentType;
+    private String paymentType;
 
     public int getPayrollId() {
         return payrollId;
@@ -58,14 +58,12 @@ public class Payroll implements Serializable{
         this.totalPay = totalPay;
     }
 
-    public int getPaymentType() {
+    public String getPaymentType() {
         return paymentType;
     }
 
-    public void setPaymentType(int paymentType) {
+    public void setPaymentType(String paymentType) {
         this.paymentType = paymentType;
     }
-
-
 
 }

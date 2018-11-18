@@ -61,12 +61,14 @@ public class EmployeeController {
     }
 
     @PutMapping("/increment/{employeeId}")
-    public Object updateSalaryIncrement(@PathVariable int employeeId){
+    public String updateSalaryIncrement(@PathVariable int employeeId){
         if(employeeId < 0){
             return "Incorrect employee Id";
         }
-        employeeService.updateSalaryIncrement(employeeId);
-        return "success";
+        if(employeeService.updateSalaryIncrement(employeeId))
+            return "Successfully calculated and updated salary of employee";
+        else
+            return "Failed to calculate and update salary of employee.";
     }
 
 

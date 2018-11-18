@@ -14,6 +14,9 @@ public class EmployeeService {
     @Autowired
     EmployeeInfoRepository employeeInfoRepository;
 
+    @Autowired
+    SalPromCalcService salPromCalcService;
+
     public List<EmployeeInfo> getAllByEmployeeIdAndDepartmentAndJobTitle(int employeeId, String department, String jobTitle){
         return employeeInfoRepository.getAllByEmployeeIdAndDepartmentAndJobTitle(employeeId, department, jobTitle);
     }
@@ -39,18 +42,14 @@ public class EmployeeService {
             return employeeInfoRepository.save(employeeInfo).getEmployeeId();
     }
 
-    public Object updateSalaryIncrement(int employeeId) {
-        IncrementFactors incrementFactors = employeeInfoRepository.getTotalHoursPunched();
+    public boolean updateSalaryIncrement(int employeeId) {
+        IncrementFactors incrementFactors = employeeInfoRepository.calcPromInc();
         if(incrementFactors!=null){
-            /*Gson gson = new Gson();
-            String jsonToString = gson.toJson(incrementFactors);
-            Map<String, Object> map = gson.fromJson(jsonToString, new TypeToken<Map<String, Object>>(){}.getType());
-            System.out.println("the object is:"+incrementFactors);
-            float finalIncrementFactor = map.get("RatingByManager")*/
-            System.out.println("this is my result: "+incrementFactors.getTotalHoursPunched());
-            return incrementFactors;
+            System.out.println("this is my result: "+incrementFactors.getRatingByManager());
+            if(salPromCalcService.calcPromInc(incrementFactors))
+                return true;
         }
 
-        return "failure";
+        return false;
     }
 }

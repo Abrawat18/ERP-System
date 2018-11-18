@@ -17,5 +17,5 @@ public interface EmployeeInfoRepository extends CrudRepository<EmployeeInfo, Int
     String getEmailIdByEmployeeId(int employeeId);
     List<EmployeeInfo> getAllByEmployeeId(int employeeId);
     List<EmployeeInfo> getAllByDepartmentAndJobTitle(String department, String jobTitle);
-    IncrementFactors getTotalHoursPunched();
+    IncrementFactors calcPromInc();
 }

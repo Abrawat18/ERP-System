@@ -15,10 +15,10 @@ public class PositionSalary implements Serializable {
     private int positionId;
     private String position;
     private String department;
-    private int baseSalary;
-    private int monthlyLeaves;
-    private int monthlyHours;
-    private char employmentType;
+    private Integer baseSalary;
+    private Integer monthlyLeaves;
+    private Integer monthlyHours;
+    private Character employmentType;
 
     public int getPositionId() {
         return positionId;

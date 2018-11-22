@@ -13,12 +13,12 @@ public class HiringInfo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int hiringId;
-    private int employeeId;
-    private char employmentType;
+    private Integer employeeId;
+    private Character employmentType;
     private Date joiningDate;
     private Date leavingDate;
     private Date trainingDate;
-    private char documentsSubmitted;
+    private Character documentsSubmitted;
 
     public int getHiringId() {
         return hiringId;

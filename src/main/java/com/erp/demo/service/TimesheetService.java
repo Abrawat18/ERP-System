@@ -1,5 +1,6 @@
 package com.erp.demo.service;
 
+import com.erp.demo.domain.EmployeeInfo;
 import com.erp.demo.domain.Timesheet;
 import com.erp.demo.repository.EmployeeInfoRepository;
 import com.erp.demo.repository.TimesheetRepository;
@@ -29,12 +30,11 @@ public class TimesheetService {
     public HashMap<Integer, String> sendIntimation(){
         HashMap<Integer, String> missingTimesheetEmpDetails = new HashMap<>();
         List<String> emailIds = new ArrayList<>();
-        List<Integer> activeEmployees = employeeInfoRepository.getEmployeeIdByActiveFlag('Y');
-        for(int id: activeEmployees){
-            if(!timesheetRepository.existsById(id)) {
-                String email = employeeInfoRepository.getEmailIdByEmployeeId(id);
-                missingTimesheetEmpDetails.put(id, email);
-                emailIds.add(email);
+        List<EmployeeInfo> activeEmployees = employeeInfoRepository.getAllByActiveFlag('Y');
+        for(EmployeeInfo employee: activeEmployees){
+            if(!timesheetRepository.existsById(employee.getEmployeeId())) {
+                missingTimesheetEmpDetails.put(employee.getEmployeeId(), employee.getEmailId());
+                emailIds.add(employee.getEmailId());
             }
         }
 

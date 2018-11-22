@@ -21,7 +21,7 @@ import java.util.List;
 
 @NamedNativeQuery(name="EmployeeInfo.calcPromInc", query = "select e.employeeId as employeeId, t.totalHoursPunched as totalHoursPunched, ps.monthlyHours as monthlyHours, h.joiningDate as joiningDate, ps.monthlyLeaves as monthlyLeaves, ps.baseSalary as baseSalary, t.totalLeavesTaken as totalLeavesTaken, t.ratingByManager as ratingByManager " +
         "from Timesheet t, PositionSalary ps, HiringInfo h, EmployeeInfo e " +
-        "where e.employeeId = 1 and ps.department = e.department and ps.position = e.jobTitle " +
+        "where e.employeeId = :employeeId and ps.department = e.department and ps.position = e.jobTitle " +
         "and t.employeeId = e.employeeId and h.employeeId = e.employeeId", resultSetMapping = "incrementFactors")
 @Entity
 @Table(name = "EmployeeInfo")
@@ -35,12 +35,12 @@ public class EmployeeInfo implements Serializable {
     private String name;
     private String emailId;
     private Date dateOfBirth;
-    private char gender;
-    private int phoneNo;
+    private Character gender;
+    private Integer phoneNo;
     private String department;
     private String jobTitle;
-    private int managerId;
-    private char activeFlag;
+    private Integer managerId;
+    private Character activeFlag;
 
     public int getEmployeeId() {
         return employeeId;

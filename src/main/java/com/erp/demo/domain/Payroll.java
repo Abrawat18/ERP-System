@@ -12,10 +12,10 @@ public class Payroll implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int payrollId;
-    private int employeeId;
-    private int basePay;
-    private int incentives;
-    private int totalPay;
+    private Integer employeeId;
+    private Integer basePay;
+    private Integer incentives;
+    private Integer totalPay;
     private String paymentType;
 
     public int getPayrollId() {

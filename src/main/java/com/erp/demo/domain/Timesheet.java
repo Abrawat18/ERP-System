@@ -13,12 +13,12 @@ public class Timesheet implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int timesheetId;
-    private int employeeId;
+    private Integer employeeId;
     private String month;
-    private int financialYear;
-    private float totalHoursPunched;
-    private int totalLeavesTaken;
-    private int ratingByManager;
+    private Integer financialYear;
+    private Float totalHoursPunched;
+    private Integer totalLeavesTaken;
+    private Integer ratingByManager;
 
     public int getTimesheetId() {
         return timesheetId;

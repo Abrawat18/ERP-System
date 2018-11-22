@@ -6,18 +6,18 @@ public interface IncrementFactors {
 
     public int getEmployeeId();
 
-    public float getTotalHoursPunched();
+    public Float getTotalHoursPunched();
 
-    public int getMonthlyHours();
+    public Integer getMonthlyHours();
 
     public Date getJoiningDate();
 
-    public int getMonthlyLeaves();
+    public Integer getMonthlyLeaves();
 
-    public int getBaseSalary();
+    public Integer getBaseSalary();
 
-    public int getTotalLeavesTaken();
+    public Integer getTotalLeavesTaken();
 
-    public int getRatingByManager();
+    public Integer getRatingByManager();
 
 }

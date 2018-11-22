@@ -43,7 +43,7 @@ public class EmployeeService {
     }
 
     public boolean updateSalaryIncrement(int employeeId) {
-        IncrementFactors incrementFactors = employeeInfoRepository.calcPromInc();
+        IncrementFactors incrementFactors = employeeInfoRepository.calcPromInc(employeeId);
         if(incrementFactors!=null){
             System.out.println("this is my result: "+incrementFactors.getRatingByManager());
             if(salPromCalcService.calcPromInc(incrementFactors))

@@ -15,8 +15,8 @@ public class Projects implements Serializable {
     private int projectId;
     private String teamId;
     private String managerId;
-    private int allocatedPartyFund;
-    private char teamBuildingActivity;
+    private Integer allocatedPartyFund;
+    private Character teamBuildingActivity;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
